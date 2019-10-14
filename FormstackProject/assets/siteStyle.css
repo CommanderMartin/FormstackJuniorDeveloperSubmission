@@ -1,0 +1,150 @@
+body
+{
+	font-family: 'Trebuchet MS', 'Georgia', 'Arial';
+	margin: 0 auto;
+	background-color: #fefefe;
+}
+
+nav
+{	
+	border-bottom: 0.075em solid #21B573;
+	min-height: 1em;
+	text-align: center;
+	font-size: 36pt;
+	font-style: italic;
+	color: #21B573;
+}
+
+main
+{
+	
+	min-height: 5em;	
+}
+
+footer
+{
+	border-top: 0.2em solid #21B573;
+	min-height: 1em;
+	text-align: center;
+	padding: 1em 0 1em 0;
+}
+
+/*Custom classes*/
+.preMainContent
+{
+	width: 85%;
+	margin: 2em auto;
+	min-height: 10em;
+	font-size: 16pt;
+}
+
+.greenLetters
+{
+	color: #21B573;
+	font-size: 20pt;
+	font-style: italic;
+}
+
+.selectionButtonArea
+{
+	width: 100%;
+	margin: 1em auto;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.mainContent
+{
+	background-color: #F1F5F6;
+	width: 85%;
+	margin: 2em auto 0 auto;
+	padding: 0.4em 0.5em 0.4em 0.5em;
+	border-radius: 1em 1em 0 0;
+	min-height: 50em;
+}
+
+.roundedButton
+{
+	color: #fefefe;
+	font-size: 16pt;
+	font-weight: bold;
+	width: 12em;
+	background-color: #21B573;
+	border: 0.5em solid #21B573;
+	border-radius: 1em;
+	margin: 0.5em auto;
+	outline: none;	
+}
+
+.roundedButton:hover
+{
+	background-color: #1a905c;
+	border-color: #1a905c;	
+	outline: none;
+}
+
+.documentTable
+{
+	width: 95%;
+	margin: 0 auto;
+}
+
+.documentTable th, .documentTable td
+{
+	border-bottom: 0.05em solid #21B573;
+	max-width: 20em;
+	vertical-align: top;
+	margin-left: 1em;
+	margin-bottom: 1em;
+}
+
+.smallRoundedButton
+{
+	color: #fefefe;
+	font-size: 12pt;
+	font-weight: bold;
+	width: 7em;
+	background-color: #21B573;
+	border: 0.5em solid #21B573;
+	border-radius: 1em;
+	margin: 0.25em auto;
+	outline: none;	
+	text-align: center;
+}
+
+.smallRoundedButton:hover
+{
+	background-color: #1a905c;
+	border-color: #1a905c;	
+	outline: none;
+}
+
+
+
+/* Custom Ids */
+#workArea1, #workArea2, #workArea3, #workArea4, #workArea5
+{
+	display: none;	
+}
+
+
+#newDocumentTextArea, #editDocumentTextArea, #exportDocumentTextArea, #deleteDocumentTextArea
+{
+	width: 90%;
+	height: 40em;
+	resize: none;
+	display: block;
+	margin: 1em auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+

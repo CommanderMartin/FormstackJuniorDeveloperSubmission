@@ -1,0 +1,119 @@
+<?php
+	//Check for anything we are listening for in the URL	
+	if(isset($_GET['delete']))
+	{
+		//?delete=1
+		$delete = $_GET['delete'];	
+		echo("<script>ToggleWorkOption(5)</script>");
+		DisplayDocumentDelete($delete);
+	}
+	else if(isset($_GET['deleteElement']))
+	{
+		//?deleteElement=0
+		DeleteElement($_GET['deleteElement']);
+	}
+	
+	//Displays a previous created document
+	function DisplayDocumentDelete($delete)
+	{
+		$user = 'root';
+		$pass = '';
+		$db = 'documentstackprojectdb';
+		
+		$conn = new mysqli('localhost', $user, $pass, $db);
+		
+		if($conn->connect_error)
+		{
+			die("Connection Failed: " . $conn->connect_error);
+		}
+		else
+		{
+			//echo("Connection successful");
+		}
+		
+		$sql = "SELECT * FROM documenttable WHERE documentid = " . $delete;
+		$result = mysqli_query($conn, $sql);
+		$row = $result->fetch_assoc();
+		
+		if($result -> num_rows > 0)
+		{
+			$documentText = $row["documentdata"];
+		
+		//Display other document data
+		echo
+		("
+			<table class = 'documentTable'>
+				<tr>
+					<th> Document Key </th>
+					<th> Creation Date </th>
+					<th> Last Edit Date </th>
+					<th> Last Export Date </th>
+				</tr>
+				
+				<tr>
+					<td>" . $row["documentid"] . "</td>
+					<td>" . $row["creationdate"] . "</td>
+					<td>" . $row["lastmodifieddate"] . "</td>
+					<td>" . $row["lastexportdate"] . "</td>
+				</tr>
+			</table>
+			
+			<script>
+				//Set text area values
+				var textarea = document.getElementById('deleteDocumentTextArea');
+				var documentText = '$documentText';
+				textarea.value = documentText;	
+				textarea.readOnly = true;
+				
+				//Set delete button value
+				var deleteButton = document.getElementById('deleteButton');
+				deleteButton.value = " . $row["documentid"] . "
+			</script>
+		");	
+		}
+		else
+		{
+			//echo("no results");
+		}			
+		
+		mysqli_close($conn);
+	}
+	
+	//Removes the element from the database
+	function DeleteElement($elementToDelete)
+	{
+		$user = 'root';
+		$pass = '';
+		$db = 'documentstackprojectdb';
+		
+		$conn = new mysqli('localhost', $user, $pass, $db);
+		
+		if($conn->connect_error)
+		{
+			die("Connection Failed: " . $conn->connect_error);
+		}
+		else
+		{
+			//echo("Connection successful");
+		}
+		
+		$sql = "DELETE FROM documenttable WHERE documentid = " . $elementToDelete;
+		$result = mysqli_query($conn, $sql);
+		mysqli_close($conn);
+	}	
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
